@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom semantic tokens */
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-kpi-bg: var(--kpi-bg);
+  --color-stat-amber: var(--stat-amber);
+  --color-stat-teal: var(--stat-teal);
+  --color-stat-violet: var(--stat-violet);
+  --color-stat-rose: var(--stat-rose);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Core palette — cool slate base */
+  --background: oklch(0.975 0.003 250);
+  --foreground: oklch(0.16 0.018 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.018 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.018 260);
+
+  /* Primary — deep indigo */
+  --primary: oklch(0.38 0.14 265);
+  --primary-foreground: oklch(0.98 0 0);
+
+  --secondary: oklch(0.955 0.008 260);
+  --secondary-foreground: oklch(0.25 0.03 260);
+  --muted: oklch(0.955 0.005 250);
+  --muted-foreground: oklch(0.52 0.02 260);
+  --accent: oklch(0.945 0.012 260);
+  --accent-foreground: oklch(0.22 0.03 260);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.007 260);
+  --input: oklch(0.93 0.006 260);
+  --ring: oklch(0.55 0.12 265);
+
+  /* Charts */
+  --chart-1: oklch(0.62 0.19 265);
+  --chart-2: oklch(0.7 0.18 50);
+  --chart-3: oklch(0.6 0.14 185);
+  --chart-4: oklch(0.65 0.17 310);
+  --chart-5: oklch(0.68 0.15 150);
+
+  /* Sidebar — deep navy */
+  --sidebar: oklch(0.2 0.04 265);
+  --sidebar-foreground: oklch(0.92 0.01 260);
+  --sidebar-primary: oklch(0.72 0.17 55);
+  --sidebar-primary-foreground: oklch(0.15 0.03 260);
+  --sidebar-accent: oklch(0.27 0.04 265);
+  --sidebar-accent-foreground: oklch(0.92 0.01 260);
+  --sidebar-border: oklch(0.28 0.035 265);
+  --sidebar-ring: oklch(0.55 0.14 265);
+
+  /* Custom tokens */
+  --hero: oklch(0.38 0.14 265);
+  --hero-foreground: oklch(0.98 0 0);
+  --kpi-bg: oklch(0.99 0.002 260);
+  --stat-amber: oklch(0.72 0.17 55);
+  --stat-teal: oklch(0.6 0.13 185);
+  --stat-violet: oklch(0.58 0.17 295);
+  --stat-rose: oklch(0.62 0.19 10);
+
+  /* Design tokens */
+  --gradient-hero: linear-gradient(135deg, oklch(0.22 0.06 265) 0%, oklch(0.32 0.12 275) 100%);
+  --gradient-amber: linear-gradient(135deg, oklch(0.72 0.17 55), oklch(0.78 0.16 65));
+  --gradient-teal: linear-gradient(135deg, oklch(0.6 0.13 185), oklch(0.65 0.12 195));
+  --gradient-violet: linear-gradient(135deg, oklch(0.55 0.18 290), oklch(0.60 0.17 305));
+  --gradient-rose: linear-gradient(135deg, oklch(0.60 0.20 10), oklch(0.65 0.18 20));
+  --shadow-card: 0 1px 3px oklch(0.2 0.04 265 / 0.06), 0 4px 16px oklch(0.2 0.04 265 / 0.04);
+  --shadow-elevated: 0 4px 24px oklch(0.2 0.04 265 / 0.12);
+  --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Utility classes */
+.gradient-hero { background: var(--gradient-hero); }
+.gradient-amber { background: var(--gradient-amber); }
+.gradient-teal { background: var(--gradient-teal); }
+.gradient-violet { background: var(--gradient-violet); }
+.gradient-rose { background: var(--gradient-rose); }
+.shadow-card { box-shadow: var(--shadow-card); }
+.shadow-elevated { box-shadow: var(--shadow-elevated); }
+.transition-smooth { transition: var(--transition-smooth); }
+
+.kpi-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+.kpi-card:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-1px);
+}
+
+.data-table th {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.badge-paid {
+  background: oklch(0.9 0.08 145);
+  color: oklch(0.32 0.12 145);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.badge-unpaid {
+  background: oklch(0.94 0.04 25);
+  color: oklch(0.48 0.14 25);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
